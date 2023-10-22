@@ -2,9 +2,9 @@ import requests
 from tkinter import messagebox
 
 # URL da página de atualizações no site oficial
-update_url = "https://anansidb.github.io/updates/anansidb_version.txt"
+update_url = "https://anansidb.github.io/versions/anansidb_version.txt"
 # Versão atual do aplicativo
-current_version = "1.0"  # Atualize para a versão atual do seu aplicativo
+current_version = "1.2"  # Atualize para a versão atual do seu aplicativo
 
 # Função para verificar e instalar atualizações
 def check_and_install_updates():
@@ -18,7 +18,7 @@ def check_and_install_updates():
             # Verifique se há uma versão mais recente disponível
             if latest_version > current_version:
                 # Faça o download da atualização
-                update_download_url = f"https://anansidb.github.io/updates/anansidb_v{latest_version}.zip"
+                update_download_url = f"https://anansidb.github.io/versions/anansidb_v{latest_version}.exe"
                 update_response = requests.get(update_download_url)
                 
                 if update_response.status_code == 200:

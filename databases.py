@@ -6,7 +6,7 @@ def create_database(db_file):
         conn = sqlite3.connect(db_file)
         cursor = conn.cursor()
 
-        # Crie uma tabela para armazenar os dados
+        # Crie uma tabela para armazenar os dados, se ela ainda não existir
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS comments_data (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -20,9 +20,10 @@ def create_database(db_file):
         conn.close()
 
     except sqlite3.Error as e:
-        print("Erro ao criar o banco de dados:", str(e)
+        print("Erro ao criar o banco de dados:", str(e))
 
-# Função para consultar o banco de dados
+# Função para consultar o banco de dados (mantida para fins de consulta, se necessário)
+
 def query_database(db_file, query):
     try:
         conn = sqlite3.connect(db_file)
@@ -35,13 +36,5 @@ def query_database(db_file, query):
         return results
 
     except sqlite3.Error as e:
-        print("Erro ao consultar o banco de dados:", str(e)
+        print("Erro ao consultar o banco de dados:", str(e))
         return []
-
-# Exemplo de uso:
-# db_file = "AppStoreData.db"
-# create_database(db_file)
-# query = "SELECT * FROM comments_data WHERE Rating > 3"
-# results = query_database(db_file, query)
-# for row in results:
-#     print(row)

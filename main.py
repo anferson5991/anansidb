@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+import os
 from scraping import scrape_and_save_data
 from updates import check_and_install_updates
 from gui import create_gui
@@ -12,8 +12,12 @@ def start_scraping():
 if __name__ == "__main__":
     # Crie a janela principal da aplicação
     root = tk.Tk()
-    root.title("Web Scraping App")
+    root.title("AnansiDB")
     root.geometry("400x200")
+
+    # Defina o ícone personalizado (substitua 'icone.ico' pelo caminho real do seu ícone)
+    icon_file = os.path.join(os.path.dirname(__file__), 'icone.ico')
+    root.iconbitmap(default=icon_file)
 
     # Verificar atualizações automaticamente no início
     check_and_install_updates()
