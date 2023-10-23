@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import filedialog
 
-# Função para criar a interface gráfica
 def create_gui(root, start_scraping):
     def select_output_folder():
         output_folder = filedialog.askdirectory()
@@ -22,13 +21,11 @@ def create_gui(root, start_scraping):
         else:
             messagebox.showwarning("Aviso", "Selecione um formato de saída válido.")
 
-    # Crie um rótulo e uma entrada para inserir a URL base
     url_label = tk.Label(root, text="URL Base do APP na PlayStore:")
     url_label.pack()
     url_entry = tk.Entry(root)
     url_entry.pack()
 
-    # Crie Radiobuttons para escolher o formato de saída
     format_var = tk.StringVar()
     format_var.set("SQLite")
     sqlite_radio = tk.Radiobutton(root, text="SQLite", variable=format_var, value="SQLite")
@@ -36,10 +33,8 @@ def create_gui(root, start_scraping):
     sqlite_radio.pack()
     xlsx_radio.pack()
 
-    # Crie um botão para iniciar o processo de scraping e salvar no formato selecionado
     scrape_button = tk.Button(root, text="Coletar dados!", command=save_format_selection)
     scrape_button.pack()
 
-    # Crie um rótulo para exibir o resultado
     result_label = tk.Label(root, text="")
     result_label.pack()
